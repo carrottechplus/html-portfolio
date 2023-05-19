@@ -32,4 +32,33 @@ header {
 			}
 		}
 	}
+	.btnCall {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 979px) {
+	header {
+		height: 100px;
+		padding: 10px 10%;
+
+		h1 {
+			position: relative;
+			top: -2px;
+
+			a {
+				font: bold 20px/1 'Arial';
+			}
+		}
+
+		ul {
+			display: none;
+		}
+
+		.btnCall {
+			display: block;
+			font-size: 20px;
+			color: #444;
+		}
+	}
 }
