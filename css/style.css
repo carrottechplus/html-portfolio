@@ -1,3 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #1d1d1d;
+}
 
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  padding: 50px 10% 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+header h1 a {
+  font: bold 24px/1 "Arial";
+  color: #333;
+}
+header ul {
+  display: flex;
+  gap: 20px;
+}
+header ul#gnb a {
+  font: bold 14px/1 "aria";
+  color: #777;
+}
+header ul.sns a {
+  font-size: 20px;
+  color: #888;
+}
 
 /*# sourceMappingURL=style.css.map */
