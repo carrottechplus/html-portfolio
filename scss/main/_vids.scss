@@ -43,3 +43,33 @@
 		}
 	}
 }
+
+@media screen and (max-width: $tablet) {
+	#vids {
+		padding: 180px 10vw 150px;
+
+		.wrap {
+			gap: 40px;
+
+			article {
+				flex: none;
+				// flex-basis: calc(50% - 20px);
+				width: calc(50% - 20px);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	#vids {
+		padding: 140px 10vw 120px;
+
+		.wrap {
+			article {
+				// flex-basis: 100%;
+				width: 100%;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
