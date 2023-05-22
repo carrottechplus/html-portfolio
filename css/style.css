@@ -336,25 +336,96 @@ header .btnCall {
   text-align: center;
 }
 #news ul {
+  position: relative;
   width: 100%;
+  padding-top: 30px;
+}
+#news ul::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: #aaa;
+  display: block;
+  content: "";
+}
+#news ul::after {
+  display: block;
+  clear: both;
+  content: "";
 }
 #news ul li {
-  width: 100%;
+  position: relative;
+  width: calc(50% - 20px);
   padding: 20px 30px;
   background: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-content: center;
 }
+#news ul li::before {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: #aaa;
+  content: "";
+}
+#news ul li:nth-of-type(odd) {
+  float: left;
+}
+#news ul li:nth-of-type(odd)::before {
+  right: -20px;
+}
+#news ul li:nth-of-type(even) {
+  float: right;
+  transform: translateY(50%);
+  justify-content: flex-end;
+}
+#news ul li:nth-of-type(even)::before {
+  left: -20px;
+}
+#news ul li:nth-of-type(even) a {
+  text-align: right;
+}
 #news ul li a {
+  width: 100%;
   font: 14px/1.2 "arial";
   color: #777;
+  margin-bottom: 10px;
 }
 #news ul li span {
   font: 14px/1 "arial";
   color: orange;
+}
+
+@media screen and (max-width: 639px) {
+  #news {
+    padding: 120px 10vw 80px;
+  }
+  #news ul::before {
+    display: none;
+  }
+  #news ul::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  #news ul li {
+    width: 100%;
+  }
+  #news ul li::before {
+    display: none;
+  }
+  #news ul li:nth-of-type(even) {
+    float: left;
+    transform: translateY(0);
+    text-align: left;
+    justify-content: flex-start;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
