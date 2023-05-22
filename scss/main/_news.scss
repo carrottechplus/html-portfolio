@@ -34,6 +34,7 @@
 		li {
 			position: relative;
 			width: calc(50% - 20px);
+			min-height: 130px;
 			padding: 20px 30px;
 			background: #fff;
 			margin-bottom: 30px;
@@ -80,6 +81,14 @@
 				font: 14px/1.2 'arial';
 				color: #777;
 				margin-bottom: 10px;
+
+				display: -webkit-box;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				line-height: 16px;
+				max-height: 48px;
+				-webkit-line-clamp: 3;
+				word-break: break-all;
 			}
 
 			span {

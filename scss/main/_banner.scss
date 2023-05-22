@@ -6,8 +6,8 @@
 
 	display: flex;
 	flex-wrap: wrap;
-	align-content: center;
-	justify-content: center;
+	align-content: center; // 수직 가운데 정렬
+	justify-content: center; // 수평 가운데 정렬
 	gap: 20px;
 
 	background-image: url(../img/banner.jpg);
@@ -19,8 +19,10 @@
 	background-attachment: fixed;
 
 	h1 {
+		width: 100%;
 		font: bold 24px/1 'arial';
 		color: #fff;
+		text-align: center;
 	}
 
 	p {
