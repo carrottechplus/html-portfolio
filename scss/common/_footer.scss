@@ -38,3 +38,19 @@ footer {
 		}
 	}
 }
+
+@media screen and (max-width: $mobile) {
+	footer {
+		padding: 80px 10vw;
+
+		.upper {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+
+			h1 {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}

@@ -115,8 +115,11 @@
 				&:nth-of-type(even) {
 					float: left;
 					transform: translateY(0);
-					text-align: left;
 					justify-content: flex-start;
+
+					a {
+						text-align: left;
+					}
 				}
 			}
 		}

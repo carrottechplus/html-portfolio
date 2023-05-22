@@ -100,6 +100,19 @@ footer .lower p:last-child {
   margin-top: 20px;
 }
 
+@media screen and (max-width: 639px) {
+  footer {
+    padding: 80px 10vw;
+  }
+  footer .upper {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  footer .upper h1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
 #visual {
   position: relative;
   width: 100%;
@@ -458,8 +471,10 @@ footer .lower p:last-child {
   #news ul li:nth-of-type(even) {
     float: left;
     transform: translateY(0);
-    text-align: left;
     justify-content: flex-start;
+  }
+  #news ul li:nth-of-type(even) a {
+    text-align: left;
   }
 }
 
