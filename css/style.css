@@ -186,7 +186,7 @@ header .btnCall {
 #pics {
   width: 100%;
   padding: 200px 10vw 150px;
-  background: #efefef;
+  background: #ddd;
 }
 #pics h1 {
   text-align: center;
@@ -261,6 +261,44 @@ header .btnCall {
   width: 100%;
   height: calc(50% - 10px);
   background: #666;
+}
+
+@media screen and (max-width: 979px) {
+  #pics {
+    padding: 180px 10vw 150px;
+  }
+  #pics .wrap {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  #pics .wrap .left {
+    width: 100%;
+    height: 350px;
+  }
+  #pics .wrap .left i {
+    font-size: 80px;
+  }
+  #pics .wrap .right {
+    width: 100%;
+    height: 600px;
+  }
+}
+@media screen and (max-width: 639px) {
+  #pics {
+    padding: 140px 10vw 120px;
+  }
+  #pics .wrap .right {
+    height: auto;
+  }
+  #pics .wrap .right article:nth-of-type(1),
+  #pics .wrap .right article:nth-of-type(2) {
+    width: 100%;
+    height: 200px;
+  }
+  #pics .wrap .right article:nth-of-type(3) {
+    height: 200px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
