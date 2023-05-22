@@ -65,6 +65,41 @@ header .btnCall {
     color: #444;
   }
 }
+footer {
+  padding: 120px 10vw;
+  background: #333;
+}
+footer .upper {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #777;
+}
+footer .upper h1 {
+  font: bold 24px/1 "arial";
+  color: #777;
+}
+footer .upper ul {
+  display: flex;
+  gap: 20px;
+}
+footer .upper ul a {
+  font: 14px/1 "arial";
+  color: #777;
+}
+footer .lower {
+  padding: 20px 0;
+}
+footer .lower address,
+footer .lower p {
+  font: 14px/1.2 "arial";
+  color: #777;
+}
+footer .lower address:last-child,
+footer .lower p:last-child {
+  margin-top: 20px;
+}
+
 #visual {
   position: relative;
   width: 100%;
