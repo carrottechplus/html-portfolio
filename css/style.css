@@ -201,7 +201,37 @@ header .btnCall {
 #pics .wrap .left {
   width: 30%;
   height: 100%;
-  background: #333;
+  background: #555;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+#pics .wrap .left > * {
+  width: 100%;
+  text-align: center;
+}
+#pics .wrap .left i {
+  font-size: 120px;
+  color: #eee;
+  margin-bottom: 30px;
+}
+#pics .wrap .left h2 {
+  font: bold 18px/1 "arial";
+  color: #fff;
+  margin-bottom: 5px;
+}
+#pics .wrap .left p {
+  font: 14px/1.2 "arial";
+  color: #888;
+  margin-bottom: 40px;
+}
+#pics .wrap .left a {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #aaa;
+  font: 12px/30px "airal";
+  color: #aaa;
 }
 #pics .wrap .right {
   width: calc(70% - 20px);
@@ -212,20 +242,25 @@ header .btnCall {
   justify-content: space-between;
   gap: 20px;
 }
+#pics .wrap .right article > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 #pics .wrap .right article:nth-of-type(1) {
   width: calc(50% - 10px);
   height: calc(50% - 10px);
-  background: #555;
+  background: #666;
 }
 #pics .wrap .right article:nth-of-type(2) {
   width: calc(50% - 10px);
   height: calc(50% - 10px);
-  background: #555;
+  background: #666;
 }
 #pics .wrap .right article:nth-of-type(3) {
   width: 100%;
   height: calc(50% - 10px);
-  background: #555;
+  background: #666;
 }
 
 /*# sourceMappingURL=style.css.map */
