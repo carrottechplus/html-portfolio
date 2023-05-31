@@ -388,7 +388,6 @@ footer .lower p:last-child {
 #news ul {
   position: relative;
   width: 100%;
-  padding-top: 30px;
 }
 #news ul::before {
   position: absolute;
@@ -414,6 +413,7 @@ footer .lower p:last-child {
   margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   align-content: center;
 }
 #news ul li::before {
@@ -447,12 +447,14 @@ footer .lower p:last-child {
   font: 14px/1.2 "arial";
   color: #777;
   margin-bottom: 10px;
-  display: -webkit-box;
   overflow: hidden;
+  display: -webkit-inline-box;
   text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
   line-height: 16px;
   max-height: 48px;
-  -webkit-line-clamp: 3;
   word-break: break-all;
 }
 #news ul li span {
