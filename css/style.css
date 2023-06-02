@@ -499,6 +499,7 @@ footer .lower p:last-child {
   background: #fff;
   border: 1px solid #888;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  display: none;
 }
 #pop .content {
   width: 100%;
