@@ -570,4 +570,36 @@ footer .lower p:last-child {
   color: #555;
 }
 
+.department .inner .wrap::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.department .inner .wrap article {
+  float: left;
+  width: 33.3333333333%;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+.department .inner .wrap article .pic {
+  width: 100%;
+  height: 20vw;
+  margin-bottom: 10px;
+}
+.department .inner .wrap article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.department .inner .wrap article h2 {
+  font: bold 20px/1 "Arial";
+  color: #333;
+  margin-bottom: 5px;
+}
+.department .inner .wrap article p {
+  font: 16px/1 "Arial";
+  color: #555;
+}
+
 /*# sourceMappingURL=style.css.map */
