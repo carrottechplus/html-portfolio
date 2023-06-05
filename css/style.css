@@ -44,6 +44,18 @@ header ul.sns a {
 header .btnCall {
   display: none;
 }
+header.header_main {
+  position: absolute;
+  border-bottom: none;
+  z-index: 2;
+}
+header.header_main h1 a,
+header.header_main #gnb a,
+header.header_main .sns a,
+header.header_main .sns i,
+header.header_main .btnCall i {
+  color: #fff;
+}
 
 @media screen and (max-width: 979px) {
   header {
@@ -151,7 +163,7 @@ footer .lower p:last-child {
 #visual {
   position: relative;
   width: 100%;
-  height: calc(100vh - 120px);
+  height: 100vh;
   background: #000;
   padding: 0 10%;
   display: flex;

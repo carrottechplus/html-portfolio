@@ -1,5 +1,5 @@
-const btnShow = document.querySelector('header h1');
-const btnDelete = document.querySelectorAll('header #gnb li')[0];
+const btnShow = document.querySelectorAll('header .sns li')[0];
+const btnDelete = document.querySelectorAll('header .sns li')[1];
 const pop = document.querySelector('#pop');
 const ck = pop.querySelector('#ck');
 const btnClose = pop.querySelector('.close');
@@ -20,6 +20,7 @@ cookieData.indexOf('today=done') < 0 ? (pop.style.display = 'block') : (pop.styl
 // 쿠키 확인 이벤트
 btnShow.addEventListener('click', (e) => {
 	e.preventDefault();
+	console.log('test');
 	console.log(document.cookie);
 });
 

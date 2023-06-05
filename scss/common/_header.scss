@@ -35,6 +35,19 @@ header {
 	.btnCall {
 		display: none;
 	}
+
+	&.header_main {
+		position: absolute;
+		border-bottom: none;
+		z-index: 2;
+		h1 a,
+		#gnb a,
+		.sns a,
+		.sns i,
+		.btnCall i {
+			color: #fff;
+		}
+	}
 }
 
 @media screen and (max-width: $tablet) {
