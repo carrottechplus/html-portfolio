@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -610,6 +611,78 @@ footer .lower p:last-child {
 @media screen and (max-width: 639px) {
   .department .inner .wrap article {
     width: 100%;
+  }
+}
+.youtube .inner .wrap article {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+.youtube .inner .wrap article::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.youtube .inner .wrap article h2 {
+  float: left;
+  width: 30%;
+  padding-right: 20px;
+  font: normal 30px/1.2 "Work Sans";
+  color: #111;
+  word-break: keep-all;
+}
+.youtube .inner .wrap article .txt {
+  float: left;
+  width: 40%;
+  padding-right: 20px;
+}
+.youtube .inner .wrap article .txt p {
+  font: 14px/1.2 "arial";
+  color: #666;
+  margin-bottom: 40px;
+}
+.youtube .inner .wrap article .txt span {
+  font: 12px/1 "arial";
+  color: orange;
+}
+.youtube .inner .wrap article .pic {
+  float: left;
+  width: 30%;
+}
+.youtube .inner .wrap article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 979px) {
+  .youtube .inner .wrap article h2 {
+    width: 50%;
+    padding-right: 40px;
+    font-size: 24px;
+  }
+  .youtube .inner .wrap article .txt {
+    width: 50%;
+    padding-right: 0;
+  }
+  .youtube .inner .wrap article .pic {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 639px) {
+  .youtube .inner .wrap article h2 {
+    width: 100%;
+    padding-right: 0;
+  }
+  .youtube .inner .wrap article .txt {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .youtube .inner .wrap article .txt p {
+    margin-bottom: 10px;
   }
 }
 
