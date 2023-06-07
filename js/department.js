@@ -8,12 +8,25 @@ const wrap = document.querySelector('.department .wrap');
 // 	console.log(data);
 // }
 
+/* fetch('data url')
+	.then((data) => data.json)
+	.then((json) => {
+		//해당 url의 데이터 출력
+		//데이터가 성공적으로 받아졌을 때 실행할 구문
+		console.log(json);
+	})
+	.catch((err) => {
+		//데이터가 응답에 실패했을떄 실행할 구문
+		console.log(err);
+	});
+ */
 let tags = '';
 
 fetch('/DB/department.json')
 	.then((res) => {
 		console.log(res);
 		return res.json(); //res.json도 promise 객체를 반환함
+		//return 쓰는 이유
 	})
 	.then((data) => {
 		const memberData = data.members;
@@ -28,7 +41,7 @@ fetch('/DB/department.json')
         </article>
       `;
 		});
-		console.log(tags);
+		// console.log(tags);
 		wrap.innerHTML = tags;
 	})
 	.catch((err) => {
