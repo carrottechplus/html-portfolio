@@ -161,6 +161,42 @@ footer .lower p:last-child {
     font-size: 24px;
   }
 }
+.pop {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0px;
+  padding: 100px;
+  z-index: 5;
+  transition: 0.3s;
+  opacity: 0;
+}
+.pop.on {
+  opacity: 1;
+}
+.pop .con {
+  width: 100%;
+  height: 100%;
+}
+.pop .con iframe,
+.pop .con img,
+.pop .con video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+.pop .close {
+  font: bold 14px/1 "arial";
+  color: #fff;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  cursor: pointer;
+}
+
 #visual {
   position: relative;
   width: 100%;
