@@ -762,11 +762,12 @@ footer .lower p:last-child {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
-  transition: 1s;
-  z-index: 100;
+  transition: opacity 1s;
+  z-index: 3;
 }
 .gallery .loading.off {
   opacity: 0;
+  z-index: -1;
 }
 .gallery .wrap {
   opacity: 0;

@@ -20,9 +20,13 @@ fetchData(url_interest);
 
 btnSearch.addEventListener('click', (e) => {
 	e.preventDefault();
+	const value = input.value.trim();
+	input.value = '';
+	if (value === '') {
+		return alert('검색어를 입력해 주세요.');
+	}
 	loading.classList.remove('off');
 	wrap.classList.remove('on');
-	const value = input.value;
 	const url_search = `${baseURL}${method_search}&tags=${value}`;
 	fetchData(url_search);
 });
