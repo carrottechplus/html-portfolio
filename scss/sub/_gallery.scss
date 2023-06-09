@@ -5,7 +5,31 @@
 	width: 100%;
 	padding: 50px 0;
 
+	position: relative;
+
+	.loading {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 1;
+		transition: 1s;
+
+		&.off {
+			opacity: 0;
+		}
+	}
+
 	.wrap {
+		opacity: 0;
+		transform: translateY(100px);
+		transition: 1s;
+
+		&.on {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
 		&::after {
 			content: '';
 			display: block;
