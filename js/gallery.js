@@ -23,7 +23,7 @@ async function fetchData(url) {
 function createList(arr) {
 	let tags = '';
 
-	items.forEach((item) => {
+	arr.forEach((item) => {
 		tags += `
       <li class='item'>
         <div class=''>
@@ -47,12 +47,10 @@ function createList(arr) {
 
 function setLoading() {
 	const imgs = wrap.querySelectorAll('img');
-
 	let count = 0;
 
 	for (const el of imgs) {
 		el.onerror = () => {
-			// 프로필이미지가 엑박이 뜨면 onerror 이벤트로 잡아서 디폴트 이미지로 대체
 			el.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
 		};
 		el.onload = () => {
@@ -64,7 +62,6 @@ function setLoading() {
 
 function isoLayout() {
 	new Isotope(wrap, {
-		// 이미지 렌더링이 되기 전에 작동하면 height 값 오류 (함수에 담기 전)
 		itemSelector: '.item',
 		transitionDuration: '0.5s',
 	});
