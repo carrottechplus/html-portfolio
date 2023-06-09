@@ -757,12 +757,13 @@ footer .lower p:last-child {
   transform: translateY(-1px);
 }
 .gallery .loading {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   opacity: 1;
   transition: 1s;
+  z-index: 100;
 }
 .gallery .loading.off {
   opacity: 0;

@@ -12,11 +12,20 @@ const method_interest = 'flickr.interestingness.getList';
 const method_user = 'flickr.people.getPhotos';
 const method_search = 'flickr.photos.search';
 
-const interest_url = `${baseURL}${method_interest}`;
-const user_url = `${baseURL}${method_user}&user_id=${myId}`;
+const url_interest = `${baseURL}${method_interest}`;
+const url_user = `${baseURL}${method_user}&user_id=${myId}`;
 const url_search = `${baseURL}${method_search}&tags=dog`;
 
-fetchData(url_search);
+fetchData(url_interest);
+
+btnSearch.addEventListener('click', (e) => {
+	e.preventDefault();
+	loading.classList.remove('off');
+	wrap.classList.remove('on');
+	const value = input.value;
+	const url_search = `${baseURL}${method_search}&tags=${value}`;
+	fetchData(url_search);
+});
 
 async function fetchData(url) {
 	const res = await fetch(url);
