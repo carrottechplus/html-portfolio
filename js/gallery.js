@@ -1,18 +1,24 @@
 const wrap = document.querySelector('.gallery .wrap');
-const api_key = '6c70577e2661042cd0ab587b17f6c944';
-const method_interest = 'flickr.interestingness.getList';
 const num = 500;
-const baseUrl = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&format=json&nojsoncallback=1&per_page=${num}`;
+const api_key = '6c70577e2661042cd0ab587b17f6c944';
+const myID = '198484213@N03';
+
+const baseURL = `https://www.flickr.com/services/rest/?format=json&nojsoncallback=1&api_key=${api_key}&per_page=${num}&method=`;
+const method_interest = 'flickr.interestingness.getList';
+const method_user = 'flickr.people.getPhotos';
+const interest_url = `${baseURL}${method_interest}`;
+const user_url = `${baseURL}${method_user}&user_id=${myID}`;
+
 // 검색량 많은 순 사진 불러옴
 
 const loading = document.querySelector('.gallery .loading');
 
 // fetching > dom 생성 > 정렬
 
-fetch(baseUrl)
+fetch(user_url)
 	.then((res) => res.json())
 	.then((json) => {
-		console.log(json.photos.photo);
+		// console.log(json.photos.photo);
 		const items = json.photos.photo;
 
 		let tags = '';
@@ -42,7 +48,7 @@ fetch(baseUrl)
 		for (const el of imgs) {
 			el.onload = () => {
 				count++; // 이미지의 소스이미지가 렌더링 완료될때마다 증가
-				console.log(count);
+				// console.log(count);
 
 				// 소스이미지의 렌더링완료된 숫자와 imgDom의 객체의 수가 동일할 때,, 모든 이미지돔에 해당하는 소스이미지가 렌더링 완료된 순간, 이때 isoLayout g호출
 
