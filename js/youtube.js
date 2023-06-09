@@ -42,9 +42,7 @@ function createList(arr) {
             <span>${date.split('T')[0].split('-').join('.')}</span>
           </div>  
           <div class='pic'>
-            <img class='thumb' src=${item.snippet.thumbnails.standard.url} alt=${
-			item.snippet.resourceId.videoId
-		} />
+            <img class='thumb' src=${item.snippet.thumbnails.standard.url} alt=${item.snippet.resourceId.videoId} />
           </div>          
         </article>
       `;

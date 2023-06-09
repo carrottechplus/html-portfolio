@@ -193,6 +193,9 @@ footer .lower p:last-child {
   object-fit: cover;
   border: 0;
 }
+.pop .con img {
+  object-fit: contain;
+}
 .pop .close {
   font: bold 14px/1 "arial";
   color: #fff;
@@ -733,10 +736,10 @@ footer .lower p:last-child {
   position: relative;
 }
 .gallery .loading {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   opacity: 1;
   transition: 1s;
 }

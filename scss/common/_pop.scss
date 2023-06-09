@@ -26,6 +26,10 @@
 			object-fit: cover;
 			border: 0;
 		}
+
+		img {
+			object-fit: contain;
+		}
 	}
 
 	.close {
