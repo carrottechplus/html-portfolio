@@ -57,8 +57,8 @@ function createList(arr) {
           </a>
           <p>${item.title === '' ? 'Have a good day !' : item.title}</p>
 					<article class='profile'>	
-						<img src='http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg' />				
-						<button type='button' class='btnProfile'>${item.owner}</button>
+						<img src='http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg' />
+						<span>${item.owner}</span>
 					</article>
         </div>
       </li>
