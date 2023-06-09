@@ -1,6 +1,6 @@
 const wrap = document.querySelector('.gallery .wrap');
 const loading = document.querySelector('.gallery .loading');
-const num = 50;
+const num = 500;
 const myId = '198484213@N03';
 const api_key = '6c70577e2661042cd0ab587b17f6c944';
 const baseURL = `https://www.flickr.com/services/rest/?format=json&nojsoncallback=1&api_key=${api_key}&per_page=${num}&method=`;
@@ -49,6 +49,9 @@ fetch(interest_url)
 		let count = 0;
 
 		for (const el of imgs) {
+			el.onerror = () => {
+				el.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
+			};
 			el.onload = () => {
 				count++; // 이미지의 소스이미지가 렌더링 완료될때마다 증가
 				// console.log(count);
