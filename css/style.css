@@ -769,15 +769,19 @@ footer .lower p:last-child {
   padding: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
 }
-.gallery .wrap li > div img {
+.gallery .wrap li > div .thumb {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .gallery .wrap li > div p {
   font: 16px/1.2 "Architects Daughter", cursive;
   margin: 10px 0 20px;
   color: #555;
+}
+.gallery .wrap li > div .profile {
+  width: 100%;
+}
+.gallery .wrap li > div .profile img {
+  width: 40px;
 }
 
 @media screen and (max-width: 979px) {
