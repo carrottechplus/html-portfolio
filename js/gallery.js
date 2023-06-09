@@ -9,21 +9,22 @@ const method_user = 'flickr.people.getPhotos';
 const interest_url = `${baseURL}${method_interest}`;
 const user_url = `${baseURL}${method_user}&user_id=${myId}`;
 
-// 검색량 많은 순 사진 불러옴
+fetchData(interest_url);
 
-// fetching > dom 생성 > 정렬
+async function fetchData(url) {
+	const res = await fetch(url);
+	const json = await res.json();
+	const items = json.photos.photo;
+	console.log(items);
 
-fetch(interest_url)
-	.then((res) => res.json())
-	.then((json) => {
-		// console.log(json.photos.photo);
-		const items = json.photos.photo;
-		console.log(items);
+	createList(items);
+}
 
-		let tags = '';
+function createList(arr) {
+	let tags = '';
 
-		items.forEach((item) => {
-			tags += `
+	items.forEach((item) => {
+		tags += `
       <li class='item'>
         <div class=''>
           <a href='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg'>
@@ -37,33 +38,29 @@ fetch(interest_url)
         </div>
       </li>
       `;
-		});
-
-		wrap.innerHTML = tags;
-		// isoLayout 처음 적용시 이미지 카드가 겹치는 원인
-		// isoDom은 생성되었지만 해당 돔에 수반되는 소스 이미지가 아직 렌더링 되지 않은 상태에서 isoLayout 구문이 호출되었기 때문
-		// 해결 방법 - 동적으로 만들어진 모든 imgDom을 반복돌면서 onload 이벤트를 연결해서 모든 소스 이미지까지 렌더링 완료된 시점에 isoLayout을 호출
-
-		const imgs = wrap.querySelectorAll('img');
-
-		let count = 0;
-
-		for (const el of imgs) {
-			el.onerror = () => {
-				el.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
-			};
-			el.onload = () => {
-				count++; // 이미지의 소스이미지가 렌더링 완료될때마다 증가
-				// console.log(count);
-
-				// 소스이미지의 렌더링완료된 숫자와 imgDom의 객체의 수가 동일할 때,, 모든 이미지돔에 해당하는 소스이미지가 렌더링 완료된 순간, 이때 isoLayout g호출
-
-				count === imgs.length && isoLayout();
-				// if(count === imgs.length) isoLayout();
-				// count === imgs.length ? isoLayout() : null;
-			};
-		}
 	});
+
+	wrap.innerHTML = tags;
+
+	setLoading();
+}
+
+function setLoading() {
+	const imgs = wrap.querySelectorAll('img');
+
+	let count = 0;
+
+	for (const el of imgs) {
+		el.onerror = () => {
+			// 프로필이미지가 엑박이 뜨면 onerror 이벤트로 잡아서 디폴트 이미지로 대체
+			el.setAttribute('src', 'https://www.flickr.com/images/buddyicon.gif');
+		};
+		el.onload = () => {
+			count++;
+			count === imgs.length && isoLayout();
+		};
+	}
+}
 
 function isoLayout() {
 	new Isotope(wrap, {
