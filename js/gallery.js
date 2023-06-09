@@ -1,15 +1,22 @@
 const wrap = document.querySelector('.gallery .wrap');
 const loading = document.querySelector('.gallery .loading');
-const num = 500;
+const num = 50;
+const input = document.querySelector('.gallery #search');
+const btnSearch = document.querySelector('.gallery .btnSearch');
+
 const myId = '198484213@N03';
 const api_key = '6c70577e2661042cd0ab587b17f6c944';
 const baseURL = `https://www.flickr.com/services/rest/?format=json&nojsoncallback=1&api_key=${api_key}&per_page=${num}&method=`;
+
 const method_interest = 'flickr.interestingness.getList';
 const method_user = 'flickr.people.getPhotos';
+const method_search = 'flickr.photos.search';
+
 const interest_url = `${baseURL}${method_interest}`;
 const user_url = `${baseURL}${method_user}&user_id=${myId}`;
+const url_search = `${baseURL}${method_search}&tags=dog`;
 
-fetchData(interest_url);
+fetchData(url_search);
 
 async function fetchData(url) {
 	const res = await fetch(url);

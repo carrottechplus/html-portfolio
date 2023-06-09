@@ -728,9 +728,33 @@ footer .lower p:last-child {
 }
 .gallery {
   overflow: hidden;
+  position: relative;
   width: 100%;
   padding: 50px 0;
-  position: relative;
+}
+.gallery .searchBox {
+  width: 100%;
+  padding: 50px 10px 20px;
+  font-size: 0;
+}
+.gallery .searchBox input {
+  width: 300px;
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+}
+.gallery .searchBox .btnSearch {
+  width: 80px;
+  height: 29px;
+  margin-left: 10px;
+  background: #333;
+  color: #fff;
+  font: bold 12px/29px "arial";
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  transform: translateY(-1px);
 }
 .gallery .loading {
   position: absolute;
@@ -781,7 +805,14 @@ footer .lower p:last-child {
   width: 100%;
 }
 .gallery .wrap li > div .profile img {
-  width: 40px;
+  width: 36px;
+}
+.gallery .wrap li > div .profile span {
+  display: inline-block;
+  font: 12px/1 "arial";
+  color: orange;
+  margin-left: 5px;
+  transform: translateY(-10px);
 }
 
 @media screen and (max-width: 979px) {
