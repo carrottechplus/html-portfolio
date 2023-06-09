@@ -3,6 +3,8 @@ const loading = document.querySelector('.gallery .loading');
 const num = 50;
 const input = document.querySelector('.gallery #search');
 const btnSearch = document.querySelector('.gallery .btnSearch');
+const btnInterest = document.querySelector('.gallery .btnInterest');
+const btnMine = document.querySelector('.gallery .btnMine');
 
 const myId = '198484213@N03';
 const api_key = '6c70577e2661042cd0ab587b17f6c944';
@@ -19,19 +21,22 @@ const url_search = `${baseURL}${method_search}&tags=dog`;
 fetchData(url_interest);
 
 btnSearch.addEventListener('click', (e) => {
-	e.preventDefault();
 	const value = input.value.trim();
 	input.value = '';
 	if (value === '') {
 		return alert('검색어를 입력해 주세요.');
 	}
-	loading.classList.remove('off');
-	wrap.classList.remove('on');
+
 	const url_search = `${baseURL}${method_search}&tags=${value}`;
 	fetchData(url_search);
 });
 
+btnInterest.addEventListener('click', () => fetchData(url_interest));
+btnMine.addEventListener('click', () => fetchData(url_user));
+
 async function fetchData(url) {
+	loading.classList.remove('off');
+	wrap.classList.remove('on');
 	const res = await fetch(url);
 	const json = await res.json();
 	const items = json.photos.photo;
@@ -53,7 +58,7 @@ function createList(arr) {
           <p>${item.title === '' ? 'Have a good day !' : item.title}</p>
 					<article class='profile'>	
 						<img src='http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg' />				
-						<span>${item.owner}</span>
+						<button type='button' class='btnProfile'>${item.owner}</button>
 					</article>
         </div>
       </li>
