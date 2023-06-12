@@ -22,11 +22,19 @@ btnSearch.addEventListener('click', () => getSearch());
 input.addEventListener('keypress', (e) => e.code === 'Enter' && getSearch());
 
 // 사용자 아이디 클릭시 해당 갤러리 확인 이벤트
-wrap.addEventListener('click', (e) => {
+document.body.addEventListener('click', (e) => {
 	if (e.target.className === 'userid') {
 		// const userId = e.target.innerText;
 		// const url_user = `${baseURL}${method_user}&user_id=${userId}`;
 		fetchData(setURL('user', e.target.innerText));
+	}
+
+	if (e.target.className === 'thumb') {
+		createPop(e.target.getAttribute('alt'));
+	}
+
+	if (e.target.className === 'close') {
+		removePop();
 	}
 });
 
@@ -84,9 +92,7 @@ function createList(arr) {
 		tags += `
       <li class='item'>
         <div class=''>
-          <a href='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg'>
-            <img class='thumb' src='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg' />
-          </a>
+            <img class='thumb' src='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg' alt='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg' />
           <p>${item.title === '' ? 'Have a good day !' : item.title}</p>
 					<article class='profile'>	
 						<img src='http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg' />
@@ -124,4 +130,27 @@ function isoLayout() {
 	});
 	wrap.classList.add('on');
 	loading.classList.add('off');
+}
+
+function createPop(url) {
+	const aside = document.createElement('aside');
+	aside.className = 'pop';
+	const tags = `
+		<div class='con'>
+			<img class='' src='${url}'>
+		</div>
+		<span class='close'>close</span>
+	`;
+	aside.innerHTML = tags;
+	document.body.append(aside);
+
+	setTimeout(() => document.querySelector('aside').classList.add('on'), 0);
+}
+
+function removePop() {
+	const pop = document.querySelector('.pop');
+	pop.classList.remove('on');
+	setTimeout(() => {
+		pop.remove();
+	}, 500);
 }
