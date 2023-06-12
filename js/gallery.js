@@ -31,6 +31,15 @@ btnSearch.addEventListener('click', (e) => {
 	fetchData(url_search);
 });
 
+// 사용자 아이디 클릭시 해당 갤러리 확인 이벤트
+wrap.addEventListener('click', (e) => {
+	if (e.target.className === 'userid') {
+		const userId = e.target.innerText;
+		const url_user = `${baseURL}${method_user}&user_id=${userId}`;
+		fetchData(url_user);
+	}
+});
+
 btnInterest.addEventListener('click', () => fetchData(url_interest));
 btnMine.addEventListener('click', () => fetchData(url_user));
 
@@ -58,7 +67,7 @@ function createList(arr) {
           <p>${item.title === '' ? 'Have a good day !' : item.title}</p>
 					<article class='profile'>	
 						<img src='http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg' />
-						<span>${item.owner}</span>
+						<span class='userid'>${item.owner}</span>
 					</article>
         </div>
       </li>
