@@ -1,26 +1,25 @@
 const wrap = document.querySelector('.gallery .wrap');
 const loading = document.querySelector('.gallery .loading');
-const num = 50;
 const input = document.querySelector('.gallery #search');
 const btnSearch = document.querySelector('.gallery .btnSearch');
 const btnInterest = document.querySelector('.gallery .btnInterest');
 const btnMine = document.querySelector('.gallery .btnMine');
-
-const myId = '198484213@N03';
 const api_key = '6c70577e2661042cd0ab587b17f6c944';
+const num = 50;
+const myId = '198484213@N03';
+
+/*
+keydown 키를 누를때
+keyup 키를 뗄 떄, macOS에서 이벤트가 두번씩 발생
+keypress 키를 눌렀다가 뗄 때, 한자같은 특수키 지원안됨
+ */
 
 fetchData(setURL('interest'));
 
-btnSearch.addEventListener('click', (e) => {
-	const value = input.value.trim();
-	input.value = '';
-	if (value === '') {
-		return alert('검색어를 입력해 주세요.');
-	}
+btnSearch.addEventListener('click', () => getSearch());
 
-	// const url_search = `${baseURL}${method_search}&tags=${value}`;
-	fetchData(setURL('search', value));
-});
+// 검색창에 키보드 이벤트 연결
+input.addEventListener('keypress', (e) => e.code === 'Enter' && getSearch());
 
 // 사용자 아이디 클릭시 해당 갤러리 확인 이벤트
 wrap.addEventListener('click', (e) => {
@@ -33,6 +32,17 @@ wrap.addEventListener('click', (e) => {
 
 btnInterest.addEventListener('click', () => fetchData(setURL('interest')));
 btnMine.addEventListener('click', () => fetchData(setURL('user', myId)));
+
+function getSearch() {
+	const value = input.value.trim();
+	input.value = '';
+	if (value === '') {
+		return alert('검색어를 입력해 주세요.');
+	}
+
+	// const url_search = `${baseURL}${method_search}&tags=${value}`;
+	fetchData(setURL('search', value));
+}
 
 // 인수값에 따른 데이터 호출 URL 반환 함수
 function setURL(type, opt) {
@@ -57,7 +67,12 @@ async function fetchData(url) {
 	const res = await fetch(url);
 	const json = await res.json();
 	const items = json.photos.photo;
-	console.log(items);
+
+	if (items.length === 0) {
+		loading.classList.add('off');
+		wrap.classList.add('on');
+		return alert('해당 검색어의 결과 이미지가 없습니다.');
+	}
 
 	createList(items);
 }
