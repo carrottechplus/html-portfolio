@@ -8,17 +8,8 @@ const btnMine = document.querySelector('.gallery .btnMine');
 
 const myId = '198484213@N03';
 const api_key = '6c70577e2661042cd0ab587b17f6c944';
-const baseURL = `https://www.flickr.com/services/rest/?format=json&nojsoncallback=1&api_key=${api_key}&per_page=${num}&method=`;
 
-const method_interest = 'flickr.interestingness.getList';
-const method_user = 'flickr.people.getPhotos';
-const method_search = 'flickr.photos.search';
-
-const url_interest = `${baseURL}${method_interest}`;
-const url_user = `${baseURL}${method_user}&user_id=${myId}`;
-const url_search = `${baseURL}${method_search}&tags=dog`;
-
-fetchData(url_interest);
+fetchData(setURL('interest'));
 
 btnSearch.addEventListener('click', (e) => {
 	const value = input.value.trim();
@@ -27,21 +18,38 @@ btnSearch.addEventListener('click', (e) => {
 		return alert('검색어를 입력해 주세요.');
 	}
 
-	const url_search = `${baseURL}${method_search}&tags=${value}`;
-	fetchData(url_search);
+	// const url_search = `${baseURL}${method_search}&tags=${value}`;
+	fetchData(setURL('search', value));
 });
 
 // 사용자 아이디 클릭시 해당 갤러리 확인 이벤트
 wrap.addEventListener('click', (e) => {
 	if (e.target.className === 'userid') {
-		const userId = e.target.innerText;
-		const url_user = `${baseURL}${method_user}&user_id=${userId}`;
-		fetchData(url_user);
+		// const userId = e.target.innerText;
+		// const url_user = `${baseURL}${method_user}&user_id=${userId}`;
+		fetchData(setURL('user', e.target.innerText));
 	}
 });
 
-btnInterest.addEventListener('click', () => fetchData(url_interest));
-btnMine.addEventListener('click', () => fetchData(url_user));
+btnInterest.addEventListener('click', () => fetchData(setURL('interest')));
+btnMine.addEventListener('click', () => fetchData(setURL('user', myId)));
+
+// 인수값에 따른 데이터 호출 URL 반환 함수
+function setURL(type, opt) {
+	const baseURL = `https://www.flickr.com/services/rest/?format=json&nojsoncallback=1&api_key=${api_key}&per_page=${num}&method=`;
+
+	const method_interest = 'flickr.interestingness.getList';
+	const method_user = 'flickr.people.getPhotos';
+	const method_search = 'flickr.photos.search';
+
+	// const url_interest = `${baseURL}${method_interest}`;
+	// const url_user = `${baseURL}${method_user}&user_id=${myId}`;
+	// const url_search = `${baseURL}${method_search}&tags=${value}`;
+
+	if (type === 'interest') return `${baseURL}${method_interest}`;
+	if (type === 'search') return `${baseURL}${method_search}&tags=${opt}`;
+	if (type === 'user') return `${baseURL}${method_user}&user_id=${opt}`;
+}
 
 async function fetchData(url) {
 	loading.classList.remove('off');
