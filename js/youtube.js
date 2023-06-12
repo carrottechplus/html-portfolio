@@ -1,6 +1,7 @@
 const wrap = document.querySelector('.youtube .wrap');
+console.log(0);
 fetchData();
-
+console.log(2);
 document.body.addEventListener('click', (e) => {
 	// console.dir(e.target);
 	if (e.target.className == 'thumb') createPop(e.target.getAttribute('alt'));

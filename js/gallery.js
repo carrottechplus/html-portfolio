@@ -22,10 +22,10 @@ fetch(url_user)
 		items.forEach((item) => {
 			tags += `
       <li class='item'>
-        <div class=''>
-          <a href='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg'>
-            <img class='pic' src='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg' />
-          </a>
+			<div class=''>
+			
+            <img class='pic' src='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg' alt='https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg' />
+      
           <p>${item.title === '' ? 'Have a good day !' : item.title}</p>
         </div>
       </li>
@@ -50,9 +50,8 @@ fetch(url_user)
 	});
 
 document.body.addEventListener('click', (e) => {
-	e.preventDefault();
 	if (e.target.className === 'pic') {
-		const imgSrc = e.target.closest('a').getAttribute('href');
+		const imgSrc = e.target.getAttribute('alt');
 		console.log(imgSrc);
 		createPop(imgSrc);
 	}

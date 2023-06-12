@@ -741,7 +741,7 @@ footer .lower p:last-child {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
-  transition: 1s;
+  transition: opacity 1s;
 }
 .gallery .loading.off {
   opacity: 0;
