@@ -5,15 +5,18 @@
 4. 전송 버튼 클릭 시 각 함수에서 하나라도 false값 리턴하면 기본전송기능 막음.
  */
 
+console.log(document.querySelector('select[name=edu]'));
+
 const form = document.querySelector('#member');
 const btnSubmit = form.querySelector('input[type=submit]');
 
 btnSubmit.addEventListener('click', (e) => {
-	// if (!isTxt('userid', 5)) e.preventDefault();
+	if (!isTxt('userid', 5)) e.preventDefault();
 	if (!isPwd('pwd1', 'pwd2', 4)) e.preventDefault();
 	if (!isEmail('email', 6)) e.preventDefault();
-	// if (!isCheck()) e.preventDefault();
-	// if (!isSelect()) e.preventDefault();
+	if (!isCheck('gender')) e.preventDefault();
+	if (!isCheck('hobby')) e.preventDefault();
+	if (!isSelect('edu')) e.preventDefault();
 });
 
 // 텍스트 항목 입력 받아 인증
@@ -64,10 +67,30 @@ function isEmail(name, len) {
 
 // 체크박스 항목 입력 받아 인증
 function isCheck(name) {
-	return true;
+	const inputs = document.querySelectorAll(`[name=${name}]`);
+	let isChecked = false;
+
+	// 현재 반복도는 체크폼요소에 하나라도 체크되어 있는게 있다면 지역변수 isChecked를 true
+	for (const input of inputs) input.checked && (isChecked = true);
+	// && 연산자 다음에 = 대입은 못나옴 괄호로 묶어주자
+	if (!isChecked) {
+		alert('해당 선택사항을 하나 이상 체크하시오');
+		return false;
+	} else {
+		return true;
+	}
 }
 
 // select 항목 입력 받아 인증
 function isSelect(name) {
-	return true;
+	const input = form.querySelector(`[name=${name}]`);
+	const selected_index = input.options.selectedIndex;
+	const value = input.options[selected_index].value;
+
+	if (value === '') {
+		alert('해당 요소 중 하나를 선택하시오');
+		return false;
+	} else {
+		return true;
+	}
 }
