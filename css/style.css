@@ -862,7 +862,8 @@ footer .lower p:last-child {
   margin-right: 30px;
 }
 .members form table td p {
-  color: hotpink;
+  width: 100%;
+  color: orangered;
   margin-top: 5px;
   font: 11px/1 "맑은 고딕";
 }
