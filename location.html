@@ -6,8 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="https://kit.fontawesome.com/2ffeb95e18.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/2ffeb95e18.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0f468c29d71f1777138f7c044c2e915"></script>
+  <script defer src="js/location.js"></script>
 </head>
 
 <body>
@@ -34,10 +36,12 @@
     <a href="#" class="btnCall"><i class="fa-solid fa-bars"></i></a>
   </header>
 
-  <section class="content">
+  <section class="content location">
     <figure class="subVisual"></figure>
     <div class="inner">
       <h1>LOCATION</h1>
+      <div class="wrap" id="map">
+      </div>
     </div>
   </section>
 
