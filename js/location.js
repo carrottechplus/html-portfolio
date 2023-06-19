@@ -32,7 +32,7 @@ const markerInfo = [
 ];
 
 //markerInfo의 첫번째 데이터로 기본 지도 인스턴스 생성
-const map = new kakao.maps.Map(mapContainer, { center: markerInfo[0].position, level: 3 });
+const map = new kakao.maps.Map(mapContainer, { center: markerInfo[0].position, level: 2 });
 
 // 마우스휠 이벤트 시 줌 기능 비활성화
 map.setZoomable(false);
@@ -53,7 +53,7 @@ btnToggle.addEventListener('click', () => {
 	if (toggle) {
 		//교통정보 보이게
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-		btnToggle.innerHTML = 'Traffic 보지않기';
+		btnToggle.innerHTML = 'Traffic 보지 않기';
 	} else {
 		map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
 		btnToggle.innerHTML = 'Traffic 보기';
